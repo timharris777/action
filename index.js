@@ -21,7 +21,7 @@ async function fetchWithRetry(url, options = {}, retries = 3, initialDelay = 100
         try {
             const response = await fetch(url, options);
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`HTTP error! status: ${response.status} >> ${response.json()}`);
             }
             return response;
         } catch (error) {
